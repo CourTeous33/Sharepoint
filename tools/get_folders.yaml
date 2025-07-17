@@ -1,0 +1,35 @@
+identity:
+  name: get_lists
+  author: langgenius
+  label:
+    en_US: Get SharePoint Lists
+    zh_Hans: Get SharePoint Lists
+    pt_BR: Get SharePoint Lists
+description:
+  human:
+    en_US: Retrieve all lists from a SharePoint site
+    zh_Hans: Retrieve all lists from a SharePoint site
+    pt_BR: Retrieve all lists from a SharePoint site
+  llm: Retrieve all lists from a SharePoint site. This tool returns information about all lists available in the connected SharePoint site including their titles, descriptions, and basic properties.
+parameters: []
+extra:
+  python:
+    source: tools/get_lists.py
+output_schema:
+  type: object
+  properties:
+    lists:
+      type: array
+      description: Array of SharePoint lists
+      items:
+        type: object
+        properties:
+          Title:
+            type: string
+            description: List title
+          Description:
+            type: string
+            description: List description
+          Id:
+            type: string
+            description: List GUID

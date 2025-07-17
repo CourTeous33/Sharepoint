@@ -1,0 +1,81 @@
+identity:
+  name: get_list_items
+  author: langgenius
+  label:
+    en_US: Get SharePoint List Items
+    zh_Hans: Get SharePoint List Items
+    pt_BR: Get SharePoint List Items
+description:
+  human:
+    en_US: Retrieve items from a SharePoint list
+    zh_Hans: Retrieve items from a SharePoint list
+    pt_BR: Retrieve items from a SharePoint list
+  llm: Retrieve items from a SharePoint list. This tool allows you to get items from a specific SharePoint list with optional filtering and field selection.
+parameters:
+  - name: list_title
+    type: string
+    required: true
+    label:
+      en_US: List Title
+      zh_Hans: List Title
+      pt_BR: List Title
+    human_description:
+      en_US: The title/name of the SharePoint list to retrieve items from
+      zh_Hans: The title/name of the SharePoint list to retrieve items from
+      pt_BR: The title/name of the SharePoint list to retrieve items from
+    llm_description: The title/name of the SharePoint list to retrieve items from
+    form: llm
+  - name: select_fields
+    type: string
+    required: false
+    label:
+      en_US: Select Fields
+      zh_Hans: Select Fields
+      pt_BR: Select Fields
+    human_description:
+      en_US: Comma-separated list of fields to retrieve (e.g., Title,Created,Author/Title)
+      zh_Hans: Comma-separated list of fields to retrieve (e.g., Title,Created,Author/Title)
+      pt_BR: Comma-separated list of fields to retrieve (e.g., Title,Created,Author/Title)
+    llm_description: Comma-separated list of fields to retrieve from the list items
+    form: llm
+  - name: filter_query
+    type: string
+    required: false
+    label:
+      en_US: Filter Query
+      zh_Hans: Filter Query
+      pt_BR: Filter Query
+    human_description:
+      en_US: OData filter query to filter items (e.g., Title eq 'Test')
+      zh_Hans: OData filter query to filter items (e.g., Title eq 'Test')
+      pt_BR: OData filter query to filter items (e.g., Title eq 'Test')
+    llm_description: OData filter query to filter the list items
+    form: llm
+  - name: top
+    type: number
+    required: false
+    label:
+      en_US: Top Items
+      zh_Hans: Top Items
+      pt_BR: Top Items
+    human_description:
+      en_US: Maximum number of items to retrieve
+      zh_Hans: Maximum number of items to retrieve
+      pt_BR: Maximum number of items to retrieve
+    llm_description: Maximum number of items to retrieve from the list
+    form: llm
+extra:
+  python:
+    source: tools/get_list_items.py
+output_schema:
+  type: object
+  properties:
+    items:
+      type: array
+      description: Array of list items
+      items:
+        type: object
+        description: SharePoint list item
+    count:
+      type: number
+      description: Number of items retrieved

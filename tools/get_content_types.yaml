@@ -1,0 +1,35 @@
+identity:
+  name: get_content_types
+  author: langgenius
+  label:
+    en_US: Get Content Types
+    zh_Hans: Get Content Types
+    pt_BR: Get Content Types
+description:
+  human:
+    en_US: Retrieve all content types from a SharePoint site
+    zh_Hans: Retrieve all content types from a SharePoint site
+    pt_BR: Retrieve all content types from a SharePoint site
+  llm: Retrieve all content types from a SharePoint site. This tool returns information about all content types available in the SharePoint site including their names, descriptions, and field definitions.
+parameters: []
+extra:
+  python:
+    source: tools/get_content_types.py
+output_schema:
+  type: object
+  properties:
+    content_types:
+      type: array
+      description: Array of SharePoint content types
+      items:
+        type: object
+        properties:
+          Name:
+            type: string
+            description: Content type name
+          Description:
+            type: string
+            description: Content type description
+          Id:
+            type: string
+            description: Content type ID

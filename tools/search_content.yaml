@@ -1,0 +1,68 @@
+identity:
+  name: search_content
+  author: langgenius
+  label:
+    en_US: Search SharePoint Content
+    zh_Hans: Search SharePoint Content
+    pt_BR: Search SharePoint Content
+description:
+  human:
+    en_US: Search for content across SharePoint site
+    zh_Hans: Search for content across SharePoint site
+    pt_BR: Search for content across SharePoint site
+  llm: Search for content across SharePoint site. This tool allows you to perform full-text search across all content in the SharePoint site including documents, list items, and pages.
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Search Query
+      zh_Hans: Search Query
+      pt_BR: Search Query
+    human_description:
+      en_US: Search query to find content across SharePoint site
+      zh_Hans: Search query to find content across SharePoint site
+      pt_BR: Search query to find content across SharePoint site
+    llm_description: Search query to find content across SharePoint site
+    form: llm
+  - name: select_properties
+    type: string
+    required: false
+    label:
+      en_US: Select Properties
+      zh_Hans: Select Properties
+      pt_BR: Select Properties
+    human_description:
+      en_US: Comma-separated list of properties to return (e.g., Title,Author,Path)
+      zh_Hans: Comma-separated list of properties to return (e.g., Title,Author,Path)
+      pt_BR: Comma-separated list of properties to return (e.g., Title,Author,Path)
+    llm_description: Comma-separated list of properties to return in search results
+    form: llm
+  - name: row_limit
+    type: number
+    required: false
+    label:
+      en_US: Row Limit
+      zh_Hans: Row Limit
+      pt_BR: Row Limit
+    human_description:
+      en_US: 'Maximum number of search results to return (default: 10)'
+      zh_Hans: 'Maximum number of search results to return (default: 10)'
+      pt_BR: 'Maximum number of search results to return (default: 10)'
+    llm_description: Maximum number of search results to return
+    form: llm
+extra:
+  python:
+    source: tools/search_content.py
+output_schema:
+  type: object
+  properties:
+    results:
+      type: array
+      description: Array of search results
+      items:
+        type: object
+        description: SharePoint search result
+    total_rows:
+      type: number
+      description: Total number of search results

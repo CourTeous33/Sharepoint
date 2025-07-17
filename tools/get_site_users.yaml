@@ -1,0 +1,35 @@
+identity:
+  name: get_site_users
+  author: langgenius
+  label:
+    en_US: Get SharePoint Site Users
+    zh_Hans: Get SharePoint Site Users
+    pt_BR: Get SharePoint Site Users
+description:
+  human:
+    en_US: Retrieve all users from a SharePoint site
+    zh_Hans: Retrieve all users from a SharePoint site
+    pt_BR: Retrieve all users from a SharePoint site
+  llm: Retrieve all users from a SharePoint site. This tool returns information about all users who have access to the SharePoint site including their names, emails, and basic properties.
+parameters: []
+extra:
+  python:
+    source: tools/get_site_users.py
+output_schema:
+  type: object
+  properties:
+    users:
+      type: array
+      description: Array of SharePoint site users
+      items:
+        type: object
+        properties:
+          Title:
+            type: string
+            description: User display name
+          Email:
+            type: string
+            description: User email address
+          Id:
+            type: string
+            description: User ID

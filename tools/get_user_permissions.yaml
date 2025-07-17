@@ -1,0 +1,39 @@
+identity:
+  name: get_user_permissions
+  author: langgenius
+  label:
+    en_US: Get User Permissions
+    zh_Hans: Get User Permissions
+    pt_BR: Get User Permissions
+description:
+  human:
+    en_US: Get effective permissions for a user in SharePoint
+    zh_Hans: Get effective permissions for a user in SharePoint
+    pt_BR: Get effective permissions for a user in SharePoint
+  llm: Get effective permissions for a user in SharePoint. This tool allows you to check what permissions a specific user has in the SharePoint site.
+parameters:
+  - name: user_email
+    type: string
+    required: true
+    label:
+      en_US: User Email
+      zh_Hans: User Email
+      pt_BR: User Email
+    human_description:
+      en_US: Email address of the user to check permissions for
+      zh_Hans: Email address of the user to check permissions for
+      pt_BR: Email address of the user to check permissions for
+    llm_description: Email address of the user to check permissions for
+    form: llm
+extra:
+  python:
+    source: tools/get_user_permissions.py
+output_schema:
+  type: object
+  properties:
+    permissions:
+      type: object
+      description: User's effective permissions
+    user_info:
+      type: object
+      description: User information

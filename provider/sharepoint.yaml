@@ -1,0 +1,83 @@
+identity:
+  author: langgenius
+  name: sharepoint
+  label:
+    en_US: SharePoint
+    zh_Hans: SharePoint
+    pt_BR: SharePoint
+  description:
+    en_US: Microsoft SharePoint integration for managing lists, items, and files
+    zh_Hans: Microsoft SharePoint integration for managing lists, items, and files
+    pt_BR: Microsoft SharePoint integration for managing lists, items, and files
+  icon: icon.svg
+credentials_for_provider:
+  site_url:
+    type: text-input
+    required: true
+    label:
+      en_US: SharePoint Site URL
+      zh_Hans: SharePoint Site URL
+      pt_BR: SharePoint Site URL
+    placeholder:
+      en_US: https://company.sharepoint.com/sites/sitename
+      zh_Hans: https://company.sharepoint.com/sites/sitename
+      pt_BR: https://company.sharepoint.com/sites/sitename
+    help:
+      en_US: Enter your SharePoint site URL (e.g., https://company.sharepoint.com/sites/sitename)
+      zh_Hans: Enter your SharePoint site URL (e.g., https://company.sharepoint.com/sites/sitename)
+      pt_BR: Enter your SharePoint site URL (e.g., https://company.sharepoint.com/sites/sitename)
+  access_token:
+    help:
+      en_US: Get your Access Tokens from Sharepoint
+      pt_BR: Obtenha sua chave da API do Google no Google
+      zh_Hans: 从 Sharepoint 获取您的 Access Tokens
+    label:
+      en_US: Access Tokens
+      pt_BR: Tokens de acesso
+      zh_Hans: Access Tokens
+    placeholder:
+      en_US: Please input your Sharepoint Access Tokens
+      pt_BR: Insira seus Tokens de Acesso do Sharepoint
+      zh_Hans: 请输入你的 Sharepoint Access Tokens
+    required: true
+    type: secret-input
+    url: https://github.com/settings/tokens?type=beta
+    
+oauth_schema:
+  client_schema:
+    - name: "client_id"
+      type: "secret-input"
+      required: true
+      label:
+        zh_Hans: "Client ID"
+        en_US: "Client ID"
+    - name: "client_secret"
+      type: "secret-input"
+      required: true
+      label:
+        zh_Hans: "Client Secret"
+        en_US: "Client Secret"
+  credentials_schema:
+    - name: "access_token"
+      type: "secret-input"
+      label:
+        zh_Hans: "Access Token"
+        en_US: "Access Token"
+
+
+tools:
+  - tools/get_lists.yaml
+  - tools/create_list.yaml
+  - tools/get_list_items.yaml
+  - tools/create_list_item.yaml
+  - tools/update_list_item.yaml
+  - tools/delete_list_item.yaml
+  - tools/upload_file.yaml
+  - tools/download_file.yaml
+  - tools/get_site_users.yaml
+  - tools/search_content.yaml
+  - tools/get_user_permissions.yaml
+  - tools/get_content_types.yaml
+extra:
+  python:
+    source: provider/sharepoint.py

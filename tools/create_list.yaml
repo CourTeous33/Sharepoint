@@ -1,0 +1,52 @@
+identity:
+  name: create_list
+  author: langgenius
+  label:
+    en_US: Create SharePoint List
+    zh_Hans: Create SharePoint List
+    pt_BR: Create SharePoint List
+description:
+  human:
+    en_US: Create a new list in SharePoint site
+    zh_Hans: Create a new list in SharePoint site
+    pt_BR: Create a new list in SharePoint site
+  llm: Create a new list in SharePoint site. This tool allows you to create a new SharePoint list with a specified title and optional description.
+parameters:
+  - name: title
+    type: string
+    required: true
+    label:
+      en_US: List Title
+      zh_Hans: List Title
+      pt_BR: List Title
+    human_description:
+      en_US: The title/name for the new SharePoint list
+      zh_Hans: The title/name for the new SharePoint list
+      pt_BR: The title/name for the new SharePoint list
+    llm_description: The title/name for the new SharePoint list
+    form: llm
+  - name: description
+    type: string
+    required: false
+    label:
+      en_US: List Description
+      zh_Hans: List Description
+      pt_BR: List Description
+    human_description:
+      en_US: Optional description for the new SharePoint list
+      zh_Hans: Optional description for the new SharePoint list
+      pt_BR: Optional description for the new SharePoint list
+    llm_description: Optional description for the new SharePoint list
+    form: llm
+extra:
+  python:
+    source: tools/create_list.py
+output_schema:
+  type: object
+  properties:
+    success:
+      type: boolean
+      description: Whether the list was created successfully
+    list_info:
+      type: object
+      description: Information about the created list

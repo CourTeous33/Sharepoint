@@ -1,0 +1,52 @@
+identity:
+  name: create_list_item
+  author: langgenius
+  label:
+    en_US: Create SharePoint List Item
+    zh_Hans: Create SharePoint List Item
+    pt_BR: Create SharePoint List Item
+description:
+  human:
+    en_US: Create a new item in a SharePoint list
+    zh_Hans: Create a new item in a SharePoint list
+    pt_BR: Create a new item in a SharePoint list
+  llm: Create a new item in a SharePoint list. This tool allows you to add a new item to a specific SharePoint list with field values.
+parameters:
+  - name: list_title
+    type: string
+    required: true
+    label:
+      en_US: List Title
+      zh_Hans: List Title
+      pt_BR: List Title
+    human_description:
+      en_US: The title/name of the SharePoint list to create item in
+      zh_Hans: The title/name of the SharePoint list to create item in
+      pt_BR: The title/name of the SharePoint list to create item in
+    llm_description: The title/name of the SharePoint list to create item in
+    form: llm
+  - name: item_data
+    type: string
+    required: true
+    label:
+      en_US: Item Data (JSON)
+      zh_Hans: Item Data (JSON)
+      pt_BR: Item Data (JSON)
+    human_description:
+      en_US: 'JSON string containing field values for the new item (e.g., {"Title": "My Item", "Description": "Item description"})'
+      zh_Hans: 'JSON string containing field values for the new item (e.g., {"Title": "My Item", "Description": "Item description"})'
+      pt_BR: 'JSON string containing field values for the new item (e.g., {"Title": "My Item", "Description": "Item description"})'
+    llm_description: JSON string containing field values for the new list item
+    form: llm
+extra:
+  python:
+    source: tools/create_list_item.py
+output_schema:
+  type: object
+  properties:
+    success:
+      type: boolean
+      description: Whether the item was created successfully
+    item_info:
+      type: object
+      description: Information about the created item

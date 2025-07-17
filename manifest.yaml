@@ -1,0 +1,44 @@
+version: 0.0.1
+type: plugin
+author: langgenius
+name: sharepoint
+label:
+  en_US: SharePoint
+  ja_JP: SharePoint
+  zh_Hans: SharePoint
+  pt_BR: SharePoint
+description:
+  en_US: Microsoft SharePoint integration for managing lists, items, and files through REST API
+  ja_JP: Microsoft SharePoint integration for managing lists, items, and files through REST API
+  zh_Hans: Microsoft SharePoint integration for managing lists, items, and files through REST API
+  pt_BR: Microsoft SharePoint integration for managing lists, items, and files through REST API
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+    endpoint:
+      enabled: true
+    app:
+      enabled: true
+    storage:
+      enabled: true
+      size: 1048576
+plugins:
+  tools:
+    - provider/sharepoint.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+created_at: 2025-07-16T12:24:50.259654+08:00
+privacy: PRIVACY.md
+verified: false
+tags:
+  - business

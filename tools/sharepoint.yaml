@@ -1,0 +1,30 @@
+identity:
+  name: sharepoint
+  author: langgenius
+  label:
+    en_US: sharepoint
+    zh_Hans: sharepoint
+    pt_BR: sharepoint
+description:
+  human:
+    en_US: An integration point for Microsoft Sharepoint
+    zh_Hans: An integration point for Microsoft Sharepoint
+    pt_BR: An integration point for Microsoft Sharepoint
+  llm: An integration point for Microsoft Sharepoint
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Query string
+      zh_Hans: 查询语句
+      pt_BR: Query string
+    human_description:
+      en_US: An integration point for Microsoft Sharepoint
+      zh_Hans: An integration point for Microsoft Sharepoint
+      pt_BR: An integration point for Microsoft Sharepoint
+    llm_description: An integration point for Microsoft Sharepoint
+    form: llm
+extra:
+  python:
+    source: tools/sharepoint.py
